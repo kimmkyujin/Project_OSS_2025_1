@@ -1,9 +1,25 @@
 from budget import Budget
 
+def get_recommended_calories(weight_kg):
+    """하루 권장 섭취 칼로리 계산"""
+    return weight_kg * 30
 
 def main():
-    budget = Budget()
-
+    # 몸무게 입력
+    while True:
+        try:
+            weight = float(input("몸무게를 입력하세요: "))
+            if weight <= 0:
+                print("0보다 큰 값을 입력해주세요.\n")
+                continue
+            break
+        except ValueError:
+            print("잘못된 입력입니다.\n")
+    
+    recommended_cal = get_recommended_calories(weight)
+    print(f"\n[안내] 하루 권장 섭취 칼로리: {recommended_cal}kcal\n")
+    
+    budget = Budget(recommended_cal)  
     while True:
         print("==== 간단 가계부 ====")
         print("1. 지출 추가")
@@ -34,7 +50,6 @@ def main():
 
         else:
             print("잘못된 선택입니다.\n")
-
 
 if __name__ == "__main__":
     main()
