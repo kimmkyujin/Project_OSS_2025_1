@@ -1,6 +1,5 @@
 from budget import Budget
 
-
 def main():
     budget = Budget()
 
@@ -10,6 +9,7 @@ def main():
         print("2. 지출 목록 보기")
         print("3. 총 지출 보기")
         print("4. 종료")
+        print("5. 오늘 총 칼로리 보기")
         choice = input("선택 > ")
 
         if choice == "1":
@@ -32,9 +32,11 @@ def main():
             print("가계부를 종료합니다.")
             break
 
+        elif choice == "5":
+            budget.total_calories_today()
+
         else:
             print("잘못된 선택입니다.\n")
-
 
 if __name__ == "__main__":
     main()
